@@ -1,0 +1,1 @@
+Learning how to  Build Application By Mean Stack Using Pluralsight training Course [Building AngularJS and Node.js Apps with the MEAN Stack](http://pluralsight.com/training/courses/TableOfContents?courseName=building-angularjs-nodejs-apps-mean&highlight=)   
