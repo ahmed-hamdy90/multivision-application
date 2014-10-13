@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ahmed-hamdy90/multivision-application/issues"
   },
-  "homepage": "https://github.com/ahmed-hamdy90/multivision-application"
+  "homepage": "https://github.com/ahmed-hamdy90/multivision-application",
+  "dependencies": {
+    "express": "^4.9.7",
+    "jade": "^1.7.0"
+  }
 }
