@@ -1,12 +1,14 @@
 /**
  * @requires express Module
- * @type {object}
  */
-var express = require('express');
+var express = require('express'),
+	stylus  = require('stylus');
+
 
 // set environment mode value for node application and default value must be development
 // env value will contains process.env.NODE_ENV value or default value (development)
 /**
+ * environment 
  * @type {string}
  */
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -14,13 +16,31 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // create object from express module
 /**
  * initialize express object  
- * @type {express object}
+ * @type {object}
  */
 var app = express();
 	// set configuration for path of views directory
 	app.set('views', __dirname + '/server/views');
 	// set view engine which will used in Node Application 
 	app.set('view engine', 'jade');
+	// use express.logger() to log in terminal 
+	app.use(express.logger('div'));
+	// use stylus middleware
+	app.use(stylus.middleware(
+		{	
+			// set path for source file
+			src : __dirname + '/public',
+			// set compile function for stylus	
+			compile : function (str, path) {
+				return stylus(str)
+					.set('filename', path);	
+			}
+
+		}
+	));
+	// use express.static to enable express to look into public directory 
+	// to enable route to get images , styles and javascript files 
+	app.use(express.static(__dirname + '/public'));
 	/**
 	 * set route of Node Application [any route]
 	 * 
