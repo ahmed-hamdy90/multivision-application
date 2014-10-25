@@ -1,0 +1,30 @@
+	- why we using bower in MEAN Stack project
+	
+to downlaod client-side dependencies (packages) [like: JQuery and AngularJs]
+
+	- why we create .bowerrc file in MEAN Stack project 
+
+to set configuration for bower , we set into file path directory which store bower_components [ this will change defualt behavior to store bower_components into folder named bower_components in root folder of mean poject]
+Note : .bowerrc file like package.json and bower.json files , jest create {} object  	
+
+	- Thirdy party middleware in Express 4.x
+
+Express 4.x in no longer depends on connect unlike Express 3.x 
+So all built-in middleware in connect which used in Express too Now must install them as dependency (module)
+Except express.static , we can use it as built-in middleware [ express.static also has it own middleware called serve-static ]
+
+Ex: 
+	In Express 3.x we use express.logger() to log infomation about node server in Terminal
+	Now in Express 4.x logger called mongan middleware 
+
+	In code must Replace -> 
+
+		var express = require('express');
+		var app = express();
+			app.use(express.logger('div'));    	
+
+	With ->		
+		var express = require('express')
+			morgan	= require('morgan');
+		var app = express();
+			app.use(morgan('div'));    	

@@ -2,7 +2,8 @@
  * @requires express Module
  */
 var express = require('express'),
-	stylus  = require('stylus');
+	stylus  = require('stylus')
+	morgan  = require('morgan');
 
 
 // set environment mode value for node application and default value must be development
@@ -23,8 +24,8 @@ var app = express();
 	app.set('views', __dirname + '/server/views');
 	// set view engine which will used in Node Application 
 	app.set('view engine', 'jade');
-	// use express.logger() to log in terminal 
-	app.use(express.logger('div'));
+	// use morgan middleware to log info into terminal 
+	app.use(morgan('dev'));
 	// use stylus middleware
 	app.use(stylus.middleware(
 		{	
