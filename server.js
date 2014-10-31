@@ -1,10 +1,13 @@
 /**
- * @requires express Module
+ * @requires express package
+ * @requires stylus  package
+ * @requires morgon  package
+ * @requires mongoose package 
  */
-var express = require('express'),
-	stylus  = require('stylus')
-	morgan  = require('morgan');
-
+var express  = require('express'),
+	stylus   = require('stylus'),
+	morgan   = require('morgan'),
+	mongoose = require('mongoose');
 
 // set environment mode value for node application and default value must be development
 // env value will contains process.env.NODE_ENV value or default value (development)
@@ -48,7 +51,12 @@ var app = express();
 	 * @param {object} req request object which will come from this route
 	 * @param {object} res response object which will come from this route
 	 */
+	app.get('/partials/:partialPath', function (req, res) {
+
+		res.render('partials/' + req.params.partialPath);
+	});
 	app.get('*', function(req, res) {
+
 		res.render('index');
 	});
 	// set port number for Node Application

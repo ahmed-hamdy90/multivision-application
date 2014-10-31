@@ -2,7 +2,7 @@
  * multiVision Module
  * @author ahmed hamdy <ahmedhamdy20@gmail.com>
  */
-angular.module('multiVisionApp', [$ngResource, $ngRoute])
+angular.module('multiVisionApp', ['ngResource', 'ngRoute'])
     /**
      * multiVision app configuration function
      * @param  {$routeProvider} $routeProvider       inject route provider object by dependeny injection
@@ -23,7 +23,7 @@ angular.module('multiVisionApp', [$ngResource, $ngRoute])
      * Main Controller
      * @param  {$rootScopeProvider} $scope inject scope provider object by dependeny injection
      */
-    .controller('MainCtrl', ['$$scope', function ($scope) {
+    .controller('MainCtrl', ['$scope', function ($scope) {
 
         /**
          * hello veriable
