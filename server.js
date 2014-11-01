@@ -17,6 +17,22 @@ var express  = require('express'),
  */
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+// create connection to mongodb with multivision database 
+// mongoose object will create multivision database if database is not exists
+mongoose.connect("mongodb://localhost/multivision");
+/**
+ * db object refer to mongodb connection to multivision database
+ * @type {object}
+ */
+var db = mongoose.connection;
+	// create listener to log errors if happened when connect to mongodb 
+	db.on('error', console.error.bind(console, "connection error: ") );
+	// create listener when connection to mongodb opened  
+	db.once('open', function callback () {
+
+		console.log("connection to multivision database is opened");	
+	});
+
 // create object from express module
 /**
  * initialize express object  
