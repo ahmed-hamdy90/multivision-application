@@ -2,4 +2,10 @@ extends ./includes/layout
 block main-content
 		section.content
 			div(ng-view)
-		h3= mongoMessage 	
+		//- you can display passing vribale from server by using buffered code [ h3= mongoMessage ]
+		//- OR Unescaped buffered code [ h3!= mongoMessage ]
+		//- OR Interpolation [ h3 #{mongoMessage} ]
+		//- OR Unescaped Interpolation [ h3 !{mongoMessage} ]
+		//- Recommend to use buffered code (the first choose)
+		//- Recommend to not use Unescaped buffered code and Unescaped Interpolation because cross site scripting  
+		h3= mongoMessage
