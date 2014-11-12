@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "prestart": "npm install && npm install -d",
+    "prestart": "npm install",
     "postinstall": "./node_modules/bower/bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,17 +20,16 @@
   },
   "homepage": "https://github.com/ahmed-hamdy90/multivision-application",
   "dependencies": {
+    "bower": "^1.3.12",
     "express": "^4.9.7",
     "jade": "^1.7.0",
     "mongoose": "^3.8.18",
     "morgan": "^1.4.1",
     "stylus": "^0.49.2"
   },
-  "devDependencies": {
-    "bower": "^1.3.12"
-  },
+  "devDependencies": {},
   "engines": {
-      "node": "0.10.x",
-      "npm": "1.4.x"
+    "node": "0.10.x",
+    "npm": "1.4.x"
   }
 }
