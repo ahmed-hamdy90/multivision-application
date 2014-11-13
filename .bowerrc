@@ -1,5 +1,3 @@
 {
-	"directory" : "public/vendor",
-	"proxy" : "http://<host>:<port>",
-  	"https-proxy" : "http://<host>:<port>"
+	"directory" : "public/vendor"
 }
