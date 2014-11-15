@@ -83,6 +83,8 @@ Message.findOne({},function (err, message) {
  * @type {object}
  */
 var app = express();
+	// set port number which Node Application will listen on it
+	app.set('port', (process.env.PORT || 3030) );
 	// set configuration for path of views directory
 	app.set('views', __dirname + '/server/views');
 	// set view engine which will used in Node Application
@@ -122,8 +124,7 @@ var app = express();
 		});
 
 	});
-	// set port number for Node Application
-	app.listen(3030);
+	app.listen(app.get('port'));
 
 // create a message will display into console when we run server.js file
-console.log("MultiVision Application Listening on port 3030");
+console.log("MultiVision Application Listening on port "+ app.get('port'));
