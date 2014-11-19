@@ -3,7 +3,7 @@
  * @requires express module
  * @requires stylus module
  * @requires morgon module
- * @requires mongoose module 
+ * @requires mongoose module
  */
 var express  = require('express'),
     stylus   = require('stylus'),
@@ -84,6 +84,8 @@ Message.findOne({},function (err, message) {
  * @type {object}
  */
 var app = express();
+    // set port number which Node Application will listen on it
+    app.set('port', (process.env.PORT || 3030) );
     // set configuration for path of views directory
     app.set('views', __dirname + '/server/views');
     // set view engine which will used in Node Application
@@ -110,17 +112,15 @@ var app = express();
      * @param {object} res response object which will come from this route
      */
      app.get('/partials/:partialPath', function (req, res) {
-
 	      res.render('partials/' + req.params.partialPath);
      });
      app.get('*', function(req, res) {
-
 	      res.render('index',{
 			     mongoMessage : savedMessageObject.message
 	      });
      });
      // set port number for Node Application
-     app.listen(3030);
+	   app.listen(app.get('port'));
 
 // create a message will display into console when we run server.js file
-console.log("MultiVision Application Listening on port 3030");
+console.log("MultiVision Application Listening on port "+ app.get('port'));
